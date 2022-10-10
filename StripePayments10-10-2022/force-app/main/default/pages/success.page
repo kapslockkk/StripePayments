@@ -1,0 +1,15 @@
+<apex:page showHeader="false">
+    <apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <script>
+    $Lightning.use("c:LightningApp", function() {
+        $Lightning.createComponent("c:paymentSuccessComponent",
+          { 
+          },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    },    );
+    </script>
+</apex:page>

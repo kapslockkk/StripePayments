@@ -1,0 +1,104 @@
+@font-face {
+   font-family: "montserrat";
+   src: url('/resource/Montserrat/static/Montserrat-SemiBold.ttf') format('opentype');
+}
+:host{
+    /* declaring root variables */
+	--background-color : White;
+	--button-text-color : white;
+	--text-color: #181818;
+	--button-background: #181818;
+	--coupon-color: #182747;
+	--label-item-border-color: #3AB0FF;
+	  	
+	font-family: "montserrat";
+    color: var(--text-color);
+}
+div{
+	max-width:390px !important;
+	margin:auto;
+}
+.card-styles{
+	
+	/*--sds-c-card-color-border : var(--text-color);*/
+	--sds-c-card-shadow : rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	--sds-c-card-color-background: var(--background-color);
+	--sds-c-card-radius-border: 10px;
+}
+.header-styles{
+	font-size: 2vw;
+}
+label{
+	z-index: 1;
+    display: block;
+    position: relative;
+	background: var(--background-color);
+    bottom: -20px;
+
+}
+
+.button-styles{
+	--sds-c-button-neutral-color-border: var(--button-background);
+	--sds-c-button-neutral-color-border-hover: var(--button-background);
+	--sds-c-button-neutral-color-border-active: var(--button-background);
+	--sds-c-button-neutral-color-border: var(--button-background);
+	--sds-c-button-neutral-color-background-hover: var(--button-background);
+	--sds-c-button-neutral-color-background-active: var(--button-background);
+	--sds-c-button-neutral-color-background: var(--button-background);
+	--sds-c-button-text-color-hover: var(--button-text-color);
+	--sds-c-button-text-color-active: var(--button-text-color);
+	--sds-c-button-text-color: var(--button-text-color);
+}
+
+form{
+	/*border: 2px solid var(--label-item-border-color);*/
+	border-radius: 8px;
+	margin-left: 0.5vw;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+	padding-bottom: 3.5vh;
+	margin-right: 0.5vw;
+}
+
+.coupon-code{
+	border: 2px solid var(--coupon-color);
+}
+
+.coupon-button{
+	--sds-c-button-neutral-color-border: var(--coupon-color);
+	--sds-c-button-neutral-color-border-hover: var(--coupon-color);
+	--sds-c-button-neutral-color-border-active: var(--coupon-color);
+	--sds-c-button-neutral-color-border: var(--coupon-color);
+	--sds-c-button-neutral-color-background-hover: var(--coupon-color);
+	--sds-c-button-neutral-color-background-active: var(--coupon-color);
+	--sds-c-button-neutral-color-background: var(--coupon-color);
+}
+
+.add-button{
+	--sds-c-button-neutral-color-border: var(--label-item-border-color);
+	--sds-c-button-neutral-color-border-hover: var(--label-item-border-color);
+	--sds-c-button-neutral-color-border-active: var(--label-item-border-color);
+	--sds-c-button-neutral-color-border: var(--label-item-border-color);
+	--sds-c-button-neutral-color-background-hover: var(--label-item-border-color);
+	--sds-c-button-neutral-color-background-active: var(--label-item-border-color);
+	--sds-c-button-neutral-color-background: var(--label-item-border-color);
+}
+
+.button-icon-styles{
+	/* --sds-c-button-color-border: var(--label-item-border-color);
+	--sds-c-button-color-border-hover: var(--label-item-border-color);
+	--sds-c-button-color-border-active: var(--label-item-border-color);
+	--sds-c-button-color-border: var(--label-item-border-color);
+	--sds-c-button-color-background-hover: var(--label-item-border-color);
+	--sds-c-button-color-background-active: var(--label-item-border-color); */
+	--sds-c-button-color-background: var(--label-item-border-color);
+	--sds-c-button-text-color-hover: var(--button-text-color);
+	--sds-c-button-text-color-active: var(--button-text-color);
+	--sds-c-button-text-color: var(--button-text-color) !important;
+	--lwc-colorTextIconDefault: var(--button-text-color) !important;
+
+}
+
+.top-border-padding{
+	margin-left: -1rem !important;
+	margin-right: -1rem !important;
+}

@@ -1,0 +1,92 @@
+<template>
+
+
+    <div>
+       
+        <lightning-card class="card-styles">
+            <lightning-spinner if:true={isLoading} alternative-text="Wait for Server Response" variant="brand" size="large"> </lightning-spinner>
+             <h3 slot="title" class="slds-align_absolute-center header-styles">
+                    Payments
+                 <lightning-input class="slds-float_right" style="position:absolute; right:14px" type="toggle" label="Auto" name="input1" message-toggle-active="" message-toggle-inactive="" onchange={checkRelatedProducts}></lightning-input>
+             </h3>
+
+            <template for:each={defaultItems} for:item="item" for:index="index">
+                <form key={item.id} class="slds-p-horizontal_small slds-m-bottom_small">
+            
+                    <lightning-button-icon data-id={index} class="slds-float_right button-icon-styles" style="margin-right:-0.75rem" icon-name="utility:ban" size="x-small" onclick={removeItem}></lightning-button-icon>
+               
+    
+                     <label>Item Name</label>
+                    <lightning-input data-id={index} name="name" type="text" onchange={handleInputChange} value={item.name} required></lightning-input>
+
+                    <label>Quantity</label>
+                    <lightning-input data-id={index} name="quantity" type="number" onchange={handleInputChange} value={item.quantity} required></lightning-input>
+    
+                    <!-- <label>Currency</label>
+                    <lightning-combobox
+                    name="Currency"
+                    value={currencyValue}
+                    options={getCurrencyNames}
+                    onchange={handleChange} ></lightning-combobox> -->
+                   
+                    <label>Enter Amount</label>
+                    <lightning-input data-id={index} name="amount" type="number" step="0.01" onchange={handleInputChange} value={item.amount} required></lightning-input>
+                    
+                   
+                </form>
+            </template>
+
+            
+            <form if:true={haveCoupon} class="slds-p-horizontal_small coupon-code slds-m-bottom_small">
+                <label>Coupon Code</label>
+                <lightning-input class="slds-p-top_xx-small" name="CouponCode" type="text" onchange={handleInputChange}></lightning-input>
+            </form>
+            
+            
+            <lightning-button class="slds-align_absolute-center button-styles add-button" icon-name="utility:add" label="Add Item" onclick={addItem}></lightning-button>
+             <div slot="footer">  
+                <div class="slds-p-bottom_small">
+                    <lightning-button class="button-styles coupon-button slds-p-right_xx-small" label="Coupon" onclick={toggleCoupon}></lightning-button> 
+                    <lightning-button class="button-styles" label="Pay Now" onclick={handlePayNow}></lightning-button>
+                    
+                </div>
+
+                <!-- Recent Transactions Section -->
+                <div class="slds-border_top slds-p-top_small top-border-padding" >
+                    <lightning-button label="Recent Transactions" class="slds-align_absolute-center button-styles add-button" onclick={getTransactions}></lightning-button>
+                    <lightning-card if:true={showTransactionsSection} class="card-styles">
+                        <h3 slot="title">
+                            Recent Transactions
+                        </h3>
+                        <form class="slds-p-horizontal_small coupon-code">
+                            <template if:true={transactionsData} iterator:it={transactionsData}>
+                                
+                                
+                                <template if:false={it.isLast}>
+                                    <div key={it.value.Id} class="slds-border_bottom">
+                                        {it.value.Total_Amount__c}
+                                    </div>
+                                </template>
+                                <template if:true={it.isLast}>
+                                    <div key={it.value.Id}>
+                                        {it.value.Total_Amount__c}
+                                    </div>
+                                </template>
+                               
+
+                                
+                                
+                                
+                                
+
+                            </template>
+                        </form>
+                    </lightning-card>
+                </div>
+            </div>
+        </lightning-card>
+        
+        
+       
+    </div>
+</template>
